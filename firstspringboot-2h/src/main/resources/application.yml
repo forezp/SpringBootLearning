@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dbgirl?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: 123
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
