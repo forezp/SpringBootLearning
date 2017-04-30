@@ -1,0 +1,11 @@
+= 用 Spring REST Docs 构建文档
+
+This is an example output for a service running at http://localhost:8080:
+
+.request
+include::{snippets}/home/http-request.adoc[]
+
+.response
+include::{snippets}/home/http-response.adoc[]
+
+这个例子非常简单，通过单元测试和一些简单的配置就能够得到api文档了。

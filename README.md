@@ -2,7 +2,7 @@
 
 # SpringBoot非官方教程 | 终章：文章汇总
 
- springboot非官方教程，可能最接近于官方的一个教程，大多数案例都来自于官方文档，为例更好的理解，加入了改造。
+ springboot非官方教程，可能最接近于官方的一个教程，大多数案例都来自于官方文档，为了更好的理解，加入了个人的改造。
  
  源码下载：[https://github.com/forezp/SpringBootLearning](https://github.com/forezp/SpringBootLearning),谢谢支持，记得star哦。
  
