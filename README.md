@@ -84,7 +84,13 @@
 ## 未完结
 * 待续。。。
 
+### 怎么支持我？
 
+* 这个系列会持续更新，敬请关注！
+
+* 关注我的公众号,精彩内容不能错过！
+
+![forezp.jpg](http://upload-images.jianshu.io/upload_images/2279594-0805748d92bba033.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
 
 
 
