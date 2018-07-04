@@ -1,10 +1,7 @@
 package com.forezp;
 
 import com.forezp.message.Receiver;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
@@ -16,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class SpringbootRabbitmqApplication {
 
-	 final static String queueName = "spring-boot";
+	 final static String queueName = "onlyoffice-client-queue2";
 
 	@Bean
 	Queue queue() {
@@ -24,13 +21,13 @@ public class SpringbootRabbitmqApplication {
 	}
 
 	@Bean
-	TopicExchange exchange() {
-		return new TopicExchange("spring-boot-exchange");
+	FanoutExchange exchange(){
+		return new FanoutExchange("onlyoffice-client-exchange-file2");
 	}
 
 	@Bean
-	Binding binding(Queue queue, TopicExchange exchange) {
-		return BindingBuilder.bind(queue).to(exchange).with(queueName);
+	Binding binding(Queue queue, FanoutExchange exchange) {
+		return BindingBuilder.bind(queue).to(exchange);
 	}
 
 	@Bean
