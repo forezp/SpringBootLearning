@@ -7,6 +7,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.net.ssl.*;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.X509Certificate;
+
 /**
  * 启动mongodb
  * C:\Program Files\MongoDB\Server\3.4\bin
@@ -19,7 +24,27 @@ public class SpringbootMongodbApplication  implements CommandLineRunner {
 	@Autowired
 	private CustomerRepository repository;
 
+	static {
+		//for localhost testing only
+		javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(
+				new javax.net.ssl.HostnameVerifier(){
+
+					public boolean verify(String hostname,
+										  javax.net.ssl.SSLSession sslSession) {
+						if (hostname.equals("192.168.8.104")) {
+							return true;
+						}
+						return false;
+					}
+				});
+	}
+
+
+
 	public static void main(String[] args) {
+		System.setProperty("javax.net.ssl.trustStore", "/etc/ssl/nx.keystore");
+
+		System.setProperty("javax.net.ssl.trustStorePassword", "1234567890");
 		SpringApplication.run(SpringbootMongodbApplication.class, args);
 	}
 

@@ -3,6 +3,9 @@ package com.forezp.message;
 import java.util.concurrent.CountDownLatch;
 import org.springframework.stereotype.Component;
 
+/**
+ * 消费者
+ */
 @Component
 public class Receiver {
 
