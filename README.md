@@ -1,13 +1,4 @@
-<div>
-    <p align="center">
-        <img src="https://www.fangzhipeng.com/img/avatar.jpg" width="258" height="258"/>
-        <br>
-        扫码关注公众号有惊喜
-    </p>
-    <p align="center" style="margin-top: 15px; font-size: 11px;color: #cc0000;">
-        <strong>（转载本站文章请注明作者和出处 <a href="https://www.fangzhipeng.com">方志朋的博客</a>）</strong>
-    </p>
-</div>
+
 
 # SpringBoot非官方教程 | 终章：文章汇总
 
@@ -17,7 +8,16 @@
  
  源码下载：[https://github.com/forezp/SpringBootLearning](https://github.com/forezp/SpringBootLearning),谢谢支持，记得star哦。
  
- 
+ <div>
+    <p align="center">
+        <img src="https://www.fangzhipeng.com/img/avatar.jpg" width="258" height="258"/>
+        <br>
+        扫码关注公众号有惊喜
+    </p>
+    <p align="center" style="margin-top: 15px; font-size: 11px;color: #cc0000;">
+        <strong>（转载本站文章请注明作者和出处 <a href="https://www.fangzhipeng.com">方志朋的博客</a>）</strong>
+    </p>
+</div>
 
 欢迎关注：[SpringCloud 系列教程](http://blog.csdn.net/forezp/article/details/70148833)
 
