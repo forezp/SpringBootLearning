@@ -15,6 +15,8 @@
 </div>
 
 
+[CSDN 2018 年 博客之星，请为我投一票，感谢！~](https://blog.csdn.net/forezp/article/details/85340278)
+
 # SpringBoot非官方教程 | 终章：文章汇总
 
  springboot非官方教程，可能最接近于官方的一个教程，大多数案例都来自于官方文档，为了更好的理解，加入了个人的改造。
