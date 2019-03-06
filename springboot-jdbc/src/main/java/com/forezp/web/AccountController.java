@@ -58,4 +58,16 @@ public class AccountController {
 
     }
 
+    @RequestMapping(value="/{id}",method=RequestMethod.DELETE)
+    public String deleteAccount(@PathVariable("id")int id){
+        Account account = new Account();
+        account.setId(id);
+        int t = accountService.delete(account.getId());
+        if(t==1){
+            return account.toString();
+        }else{
+            return  "delete failed";
+        }
+    }
+
 }
