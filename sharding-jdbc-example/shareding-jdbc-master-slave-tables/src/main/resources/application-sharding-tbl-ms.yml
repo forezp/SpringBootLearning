@@ -1,0 +1,39 @@
+
+sharding:
+  jdbc:
+    dataSource:
+      names: db-test0,db-test1,db-test2
+      db-test0: #org.apache.tomcat.jdbc.pool.DataSource
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://{master-host}:3306/cool?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root123
+        maxPoolSize: 20
+      db-test1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://{slave1-host}:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root123
+        maxPoolSize: 20
+      db-test2:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://{slave2-host}:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root123
+        maxPoolSize: 20
+    props:
+      sql:
+        show: true
+sharding.jdbc.config.sharding.tables.user.actual-data-nodes: ds_0.user_$->{0..3}
+sharding.jdbc.config.sharding.tables.user.table-strategy.standard.sharding-column: id
+sharding.jdbc.config.sharding.tables.user.table-strategy.standard.precise-algorithm-class-name: com.forezp.sharedingjdbcmasterslavetables.MyPreciseShardingAlgorithm
+#sharding.jdbc.config.sharding.tables.user.table-strategy.inline.sharding-column=id
+#sharding.jdbc.config.sharding.tables.user.table-strategy.inline.algorithm-expression=user_${id.longValue() % 4}
+
+sharding.jdbc.config.sharding.master-slave-rules.ds_0.master-data-source-name: db-test0
+sharding.jdbc.config.sharding.master-slave-rules.ds_0.slave-data-source-names: db-test1,db-test2
+server:
+  port: 8085

@@ -1,0 +1,41 @@
+
+
+sharding:
+  jdbc:
+    dataSource:
+      names: db-test0,db-test1,db-test2
+      # 配置主库
+      db-test0: #org.apache.tomcat.jdbc.pool.DataSource
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://{master-host}:3306/cool?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password:
+        #最大连接数
+        maxPoolSize: 20
+      db-test1: # 配置第一个从库
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://{slave1-host}:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password:
+        maxPoolSize: 20
+      db-test2: # 配置第二个从库
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://{slave2-host}:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password:
+        maxPoolSize: 20
+    config:
+      masterslave: # 配置读写分离
+        load-balance-algorithm-type: round_robin # 配置从库选择策略，提供轮询与随机，这里选择用轮询//random 随机 //round_robin 轮询
+        name: db1s2
+        master-data-source-name: db-test0
+        slave-data-source-names: db-test1,db-test2
+    props:
+      sql: # 开启SQL显示，默认值: false，注意：仅配置读写分离时不会打印日志！！！
+        show: true
+
+server.port: 8085
+mybatis.config-location: classpath:META-INF/mybatis-config.xml

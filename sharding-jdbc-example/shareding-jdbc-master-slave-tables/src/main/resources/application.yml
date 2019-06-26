@@ -1,0 +1,6 @@
+
+mybatis.config-location: classpath:META-INF/mybatis-config.xml
+spring:
+  profiles:
+    active: sharding-tbl-ms
+
