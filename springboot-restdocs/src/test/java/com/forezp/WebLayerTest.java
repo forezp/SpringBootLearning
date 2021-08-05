@@ -19,6 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(HomeController.class)
+@ContextConfiguration(classes = {SpringbootRestdocsApplication.class})
 @AutoConfigureRestDocs(outputDir = "target/snippets")
 public class WebLayerTest {
 
